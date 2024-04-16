@@ -3,11 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome',['what'=> 'Project-x', 'when'=>'starts soon!']);
 });
   
 
-Route::get('/burgers', function () {
-    return view('burgers',['type'=> 'humburger']);
-});
-  
