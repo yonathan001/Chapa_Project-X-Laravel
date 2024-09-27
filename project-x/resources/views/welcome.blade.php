@@ -1,48 +1,26 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Project-X</title>
-
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
-       
-
-        <!-- Styles -->
-        <style>
-body {
-    background-color: #232323; /* Change this to your desired dark color */
-    color: #fff; /* Change text color to white or light color for better visibility */
-    font-size: 34px;
-    text-align: center
-}
-          
-        </style>
-    </head>
-    <body class="font-sans antialiased dark:bg-black dark:text-white/50">
-        <div class="bg-gray-50 text-black/50 dark:bg-black dark:text-white/50">
-            
-            <div class="relative min-h-screen flex flex-col items-center justify-center selection:bg-[#FF2D20] selection:text-white">
-                <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
-                    <header class="grid grid-cols-2 items-center gap-2 py-10 lg:grid-cols-3">
-                        <div class="flex lg:justify-center lg:col-start-2">
-                            
-                        </div>
-                      
-                    </header>
-
-                    <main class="mt-1">
-                        
-                        
-                    </main>
-                    <p>{{ $what }} - {{$when}} </P>
-
-                   
-                </div>
-            </div>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gray-900">
+    <form action="{{ route('donate') }}" method="POST" class="bg-gray-800 p-8 rounded-lg shadow-md w-full max-w-md">
+        <h1 class="text-2xl font-semibold text-white mb-6 text-center">MAKE DONATION </h1>
+        @csrf
+        <div class="mb-6">
+            <label for="name" class="block text-base font-medium text-gray-300 mb-2">Name:</label>
+            <input type="text" id="name" name="name" class="w-full px-4 py-2 bg-gray-700 text-white border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 ease-in-out">
         </div>
-    </body>
+
+        <div class="mb-6">
+            <label for="amount" class="block text-base font-medium text-gray-300 mb-2">Amount:</label>
+            <input type="number" id="amount" name="amount" class="w-full px-4 py-2 bg-gray-700 text-white border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 ease-in-out">
+        </div>
+
+        <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded-md font-medium text-sm hover:bg-blue-600 transition-colors duration-300 ease-in-out">Donate</button>
+    </form>
+</body>
 </html>
